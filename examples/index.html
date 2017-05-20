@@ -5,7 +5,8 @@
 	<link rel="stylesheet" type="text/css" href="./css/stylesheet.css">
 	<title>Bitter - Go on, say your opinion</title>
 </head>
-<body>
+<body background="./images/pexels-photo-249203.jpeg">
+<!-- {% if root: {{ background }} else: {{ white }} %} -->
 
 	<header>
 		
@@ -14,7 +15,7 @@
 			<a class="anchor" href="#">About</a>
 		</span>
 		<span class="right-nav">
-			<a class="anchor" href="#">Bits</a>
+			<a class="anchor" href="#">Bitts</a>
 			<a class="anchor" href="#">Users</a>
 			<a class="anchor" href="#">Profile</a>
 			<a class="anchor" href="#">Logout</a>
@@ -22,21 +23,22 @@
 
 	</header>
 
-	<dir class="container">
+	<dir id="container">
 		
-		<div class="intro">
+		<div id="intro">
 			<h1>Welcome to Bitter!</h1>
 			<p>Bitter is a simple Twitter clone. Lorem ipsum et cetera and so on.</p>
 		</div>
-		<div class="forms">
+		<div id="intro-forms">
 			
-			<form class="login" action="/login" method="post">
+			<form class="home-forms" id="login" action="/login" method="post">
 				<input type="text" name="username" placeholder="Username"><br>
 				<input type="password" name="password" placeholder="Password"><br>
 				<input type="submit" value="Log in">
 			</form>
 
-			<form class="signup" action="/signup" method="post">
+			<form class="home-forms" id="signup" action="/signup" method="post">
+				<h3>Please join us &lt;3</h3>
 				<input type="text" name="email" placeholder="Email"><br>
 				<input type="text" name="username" placeholder="Username"><br>
 				<input type="text" name="first_name" placeholder="First name"><br>

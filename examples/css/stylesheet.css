@@ -1,0 +1,118 @@
+/* Reset */
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font-family: arial, sans-serif;
+}
+
+/* Body */
+
+body {
+	min-height: 100%;
+	position: relative;
+	/*background-image: url("../images/pexels-photo-249203.jpeg");
+	background-repeat: repeat-x;*/
+}
+
+/* Navbar */
+
+/* For glowing text see: https://www.sitepoint.com/css3-glowing-link-effect/ */
+.anchor {
+	display: inline-block;
+	line-height: 40px;
+	margin-left: 25px;
+	text-decoration: none;
+	font-family: arial, sans-serif;
+	color: #ffffff;
+
+	-webkit-transition: 500ms linear 0s;
+	-moz-transition: 500ms linear 0s;
+	-o-transition: 500ms linear 0s;
+	transition: 500ms linear 0s;
+}
+
+.anchor:hover {
+	color: #ffffff;
+	text-shadow: -1px 1px 8px #fff, 1px -1px 8px #fff;
+}
+
+header {
+	background-color: #800000;
+	margin-bottom: 60px;
+}
+
+.right-nav {
+	position: absolute;
+	right: 25px;
+}
+
+/* Container - Content section */
+
+/* Do I need this padding? */
+#container {
+	padding-bottom: 40px;
+}
+
+#intro {
+	float: left;
+	width: 20%;
+	margin-left: 25%;
+	padding: 2em;
+	color: #ffffff;
+}
+
+#intro-forms {
+	float: left;
+	width: 20%;
+	margin-right: 20%;
+	padding: 2em;
+}
+
+.home-forms {
+	background-color: #ffffff;
+	padding: 5px;
+	margin-bottom: 20px;
+}
+
+#login {
+	border-radius: 4px;
+}
+
+#signup {
+	border-radius: 4px;
+	text-align: center;
+}
+
+input[type=text], input[type=password] {
+	width: 100%;
+	padding: 10px 20px;
+	margin: 4px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type=submit] {
+	width: 100%;
+	padding: 10px 20px;
+	margin: 8px 0;
+}
+
+/* About section */
+
+.about {
+	width: 40%;
+	margin: auto;
+	text-align: justify;
+	font-size: 1.5em;
+}
+
+/* Debug */
+/*
+* {
+	border-color: white;
+	border-style: dashed;
+}
+*/
