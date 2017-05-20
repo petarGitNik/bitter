@@ -1,0 +1,31 @@
+.
+├── bitter
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── bitter_app
+│   ├── migrations
+│   │   └── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── __init__.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+├── examples
+│   ├── css
+│   │   └── stylesheet.css
+│   ├── scripts
+│   │   └── script.js
+│   ├── about.html
+│   ├── bitts.html
+│   ├── friends.html
+│   ├── home.html
+│   ├── index.html
+│   └── profile.html
+├── directory_structure.txt
+├── manage.py
+└── README.md
+
+6 directories, 22 files
