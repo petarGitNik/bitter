@@ -1,4 +1,3 @@
-/* Reset */
 html, body {
 	margin: 0;
 	padding: 0;
@@ -6,18 +5,11 @@ html, body {
 	font-family: arial, sans-serif;
 }
 
-/* Body */
-
 body {
 	min-height: 100%;
 	position: relative;
-	/*background-image: url("../images/pexels-photo-249203.jpeg");
-	background-repeat: repeat-x;*/
 }
 
-/* Navbar */
-
-/* For glowing text see: https://www.sitepoint.com/css3-glowing-link-effect/ */
 .anchor {
 	display: inline-block;
 	line-height: 40px;
@@ -25,7 +17,6 @@ body {
 	text-decoration: none;
 	font-family: arial, sans-serif;
 	color: #ffffff;
-
 	-webkit-transition: 500ms linear 0s;
 	-moz-transition: 500ms linear 0s;
 	-o-transition: 500ms linear 0s;
@@ -47,9 +38,6 @@ header {
 	right: 25px;
 }
 
-/* Container - Content section */
-
-/* Do I need this padding? */
 #container {
 	padding-bottom: 40px;
 }
@@ -100,15 +88,9 @@ input[type=submit] {
 	margin: 8px 0px;
 }
 
-input[type=file] {
-
-}
-
 #choose-file {
 	margin-left: 5px;
 }
-
-/* About section */
 
 .about {
 	width: 40%;
@@ -117,7 +99,6 @@ input[type=file] {
 	font-size: 1.5em;
 }
 
-/* Bitts */
 .avatar {
 	float: left;
 	margin-left: 20%;
@@ -163,7 +144,6 @@ input[type=file] {
 }
 
 #profile-pic {
-	/*float: left;*/
 	width: 200px;
 	height: 200px;
 	border-style: solid;
@@ -172,11 +152,6 @@ input[type=file] {
 	border-radius: 5px;
 }
 
-.list-of-bitts {
-	/*width: 50%;*/
-}
-
-/* top right bottom left */
 .individual-bitt, .new-bitt, .user-details {
 	border-style: solid;
 	border-color: #e6e6e6;
@@ -196,8 +171,6 @@ input[type=file] {
 	box-sizing: border-box;
 	margin: 0px 0px 5px 0px;
 	resize: vertical;
-	/*overflow: hidden;*/
-	/*resize: none;*/
 	font-family: arial, sans-serif;
 	font-size: 0.9em;
 	padding: 6px 6px;
@@ -242,11 +215,3 @@ input[type=file] {
 .username, .time {
 	color: #808080;
 }
-
-/* Debug */
-/*
-* {
-	border-color: black;
-	border-style: dashed;
-}
-*/
