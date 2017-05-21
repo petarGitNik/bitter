@@ -121,6 +121,11 @@ input[type=submit] {
 	width: 40%;
 }
 
+.bitts-home {
+	margin: auto;
+	width: 40%;
+}
+
 #user-avatar {
 	display: block;
 	width: 200px;
