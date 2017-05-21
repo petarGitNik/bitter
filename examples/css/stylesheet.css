@@ -87,7 +87,7 @@ header {
 input[type=text], input[type=password] {
 	width: 100%;
 	padding: 10px 20px;
-	margin: 4px 0;
+	margin: 4px 0px;
 	display: inline-block;
 	border: 1px solid #ccc;
 	border-radius: 4px;
@@ -97,7 +97,15 @@ input[type=text], input[type=password] {
 input[type=submit] {
 	width: 100%;
 	padding: 10px 20px;
-	margin: 8px 0;
+	margin: 8px 0px;
+}
+
+input[type=file] {
+
+}
+
+#choose-file {
+	margin-left: 5px;
 }
 
 /* About section */
@@ -121,9 +129,13 @@ input[type=submit] {
 	width: 40%;
 }
 
-.bitts-home {
+.bitts-home, .users, .user-profile {
 	margin: auto;
 	width: 40%;
+}
+
+.user-profile {
+
 }
 
 #user-avatar {
@@ -135,12 +147,37 @@ input[type=submit] {
 	border-radius: 10px;
 }
 
+#bio {
+	width: 220px;
+	text-align: justify;
+}
+
+#biography {
+	resize: vertical;
+	box-sizing: border-box;
+	width: 100%;
+	margin: 4px 0px;
+	font-family: arial, sans-serif;
+	font-size: 0.9em;
+	padding: 6px 18px;
+}
+
+#profile-pic {
+	/*float: left;*/
+	width: 200px;
+	height: 200px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+	border-radius: 5px;
+}
+
 .list-of-bitts {
 	/*width: 50%;*/
 }
 
 /* top right bottom left */
-.individual-bitt, .new-bitt {
+.individual-bitt, .new-bitt, .user-details {
 	border-style: solid;
 	border-color: #e6e6e6;
 	border-width: 1px;
@@ -161,6 +198,9 @@ input[type=submit] {
 	resize: vertical;
 	/*overflow: hidden;*/
 	/*resize: none;*/
+	font-family: arial, sans-serif;
+	font-size: 0.9em;
+	padding: 6px 6px;
 }
 
 .new-bitt-button {
@@ -188,6 +228,10 @@ input[type=submit] {
 .bitt-text {
 	margin-left: 60px;
 	text-align: justify;
+}
+
+.details {
+	margin-left: 60px;
 }
 
 .name {

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./css/stylesheet.css">
+
+	<script type="text/javascript" src="./scripts/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="./scripts/script.js"></script>
+
+	<title>Bitter - Go on, say your opinion</title>
+</head>
+<body>
+
+	<header>
+		
+		<span class="left-nav">
+			<a class="anchor" href="#">Home</a>
+			<a class="anchor" href="#">About</a>
+		</span>
+		<span class="right-nav">
+			<a class="anchor" href="#">Bitts</a>
+			<a class="anchor" href="#">Users</a>
+			<a class="anchor" href="#">Profile</a>
+			<a class="anchor" href="#">Logout</a>
+		</span>
+
+	</header>
+
+	<div id="container">
+
+		<div class="user-profile">
+			
+			<h1>Edit your profile:</h1>
+
+			<form class="profile-form">
+				
+				<!-- <img id="profile-pic" src="./images/floppy-disk-computer-163161.png"> -->
+				<input type="text" name="email" placeholder="Email"><br>
+				<input type="text" name="username" placeholder="Username"><br>
+				<input type="text" name="first_name" placeholder="First name"><br>
+				<input type="text" name="last_name" placeholder="Last name"><br>
+				<textarea id="biography" placeholder="Enter your short bio here."></textarea>
+				<p id="choose-file">Choose your profile picture: 
+					<input type="file" name="profile_picture">
+				</p>
+				<input type="password" name="password1" placeholder="Enter password"><br>
+				<input type="password" name="password2" placeholder="Confirm password"><br>
+				<input type="submit" value="Finish editing">
+
+			</form>
+
+		</div>
+
+	</div>
+
+</body>
+</html>
