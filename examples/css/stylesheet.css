@@ -109,10 +109,95 @@ input[type=submit] {
 	font-size: 1.5em;
 }
 
+/* Bitts */
+.avatar {
+	float: left;
+	margin-left: 20%;
+}
+
+.bitts {
+	float: left;
+	margin-left: 5%;
+	width: 40%;
+}
+
+#user-avatar {
+	display: block;
+	width: 200px;
+	height: 200px;
+	border-style: solid;
+	border-width: 10px;
+	border-radius: 10px;
+}
+
+.list-of-bitts {
+	/*width: 50%;*/
+}
+
+/* top right bottom left */
+.individual-bitt, .new-bitt {
+	border-style: solid;
+	border-color: #e6e6e6;
+	border-width: 1px;
+	border-radius: 1px;
+	margin: 5px 0px 5px 0px;
+	padding: 5px;
+	position: relative;
+}
+
+.new-bitt {
+	overflow: hidden;
+}
+
+#new-bitt-text {
+	width: 100%;
+	box-sizing: border-box;
+	margin: 0px 0px 5px 0px;
+	resize: vertical;
+	/*overflow: hidden;*/
+	/*resize: none;*/
+}
+
+.new-bitt-button {
+	float: right;
+	display: inline-block;
+	margin-right: 3px;
+}
+
+#chars-left {
+	margin-top: 5px;
+	margin-left: 5px;
+	color: #808080;
+	display: inline-block;
+}
+
+.bitt-avatar {
+	float: left;
+	width: 50px;
+	height: 50px;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 1px;
+}
+
+.bitt-text {
+	margin-left: 60px;
+	text-align: justify;
+}
+
+.name {
+	margin-left: 10px;
+	font-weight: bold;
+}
+
+.username, .time {
+	color: #808080;
+}
+
 /* Debug */
 /*
 * {
-	border-color: white;
+	border-color: black;
 	border-style: dashed;
 }
 */
