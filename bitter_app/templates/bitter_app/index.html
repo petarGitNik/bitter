@@ -8,7 +8,7 @@ body { background-image: url("{% static 'bitter_app/images/pexels-photo-249203.j
 
 	<header>
 		<span class="left-nav">
-			<a class="anchor" href="#">Home</a>
+			<a class="anchor" href="{% url 'bitter:index' %}">Home</a>
 			<a class="anchor" href="{% url 'bitter:about' %}">About</a>
 		</span>
 	</header>
@@ -32,7 +32,7 @@ body { background-image: url("{% static 'bitter_app/images/pexels-photo-249203.j
 				<input type="submit" value="Log in">
 			</form>
 
-			<form class="home-forms" id="signup" action="#" method="post">
+			<form class="home-forms" id="signup" action="{% url 'bitter:signup' %}" method="post">
         {% csrf_token %}
 				<h3>Please join us &lt;3</h3>
         {% for field in user_create_form %}
