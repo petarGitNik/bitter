@@ -16,5 +16,9 @@ def index(request, user_create_form=None, log_in_form=None):
         'user_create_form' : user_create_form,
     })
 
-def about(request):
-    return render(request, 'bitter_app/about.html')
+def about(request, show_full_nav=False):
+    if request.user.is_authenticated():
+        show_full_nav = True
+    return render(request, 'bitter_app/about.html', {
+        'show_full_nav' : show_full_nav
+    })
