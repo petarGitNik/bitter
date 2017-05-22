@@ -3,13 +3,16 @@ from __future__ import unicode_literals
 from django.http import HttpResponse
 from django.urls import reverse
 from django.core.exceptions import PermissionDenied
+from django.db import transaction
 from django.shortcuts import redirect
 from django.shortcuts import render
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 from bitter_app.forms import UserCreateForm
 from bitter_app.forms import LogInForm
+from bitter_app.forms import EditProfileForm
 
 def index(request, user_create_form=None, log_in_form=None):
     """
@@ -75,3 +78,19 @@ def log_in(request):
             return index(request, log_in_form=log_in_form)
     else:
         return redirect(reverse('bitter:index'))
+
+# right click on profile page, view source, leads to
+# view-source:http://127.0.0.1:8000/accounts/login/?next=/profile/
+# i.e. 404
+@login_required
+@transaction.atomic
+def profile(request):
+    if request.method == 'POST':
+        pass
+    else:
+        user_form = UserCreateForm(instance = request.user)
+        profile_form = EditProfileForm(instance = request.user.profile)
+        return render(request, 'bitter_app/profile.html', {
+            'user_form' : user_form,
+            'profile_form' : profile_form,
+        })

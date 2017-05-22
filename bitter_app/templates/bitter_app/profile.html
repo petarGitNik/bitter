@@ -1,0 +1,23 @@
+{% extends 'bitter_app/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="user-profile">
+
+  <h1>Edit your profile:</h1>
+
+  <form class="profile-form">
+    {% csrf_token %}
+
+    {{ profile_form.biography }}
+    <p id="choose-file">Choose your profile picture:
+      {{ profile_form.avatar }}
+    </p>
+    {% for field in user_form %}
+      {{ field }}
+    {% endfor %}
+    <input type="submit" value="Finish editing">
+  </form>
+
+</div>
+{% endblock content %}

@@ -2,6 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django import forms
+from bitter_app.models import Profile
 
 # Registration form (Sign up form)
 class UserCreateForm(UserCreationForm):
@@ -36,10 +37,26 @@ class UserCreateForm(UserCreationForm):
         return password2
 
     class Meta:
-        # Render fields in this order
-        fields = ['email', 'username', 'first_name', 'last_name', 'password1', 'password2']
         # Validate form agains this model
         model = User
+        # Render fields in this order
+        fields = ['email', 'username', 'first_name', 'last_name', 'password1', 'password2']
+
+# Profile form
+class EditProfileForm(forms.ModelForm):
+    biography = forms.CharField(required=False, widget=forms.Textarea(attrs={
+        'id' : 'biography',
+        'placeholder' : 'Enter your short bio here.',
+        'maxlength' : '250',
+        # Why does django automatically sets rows and cols?
+    }))
+    avatar = forms.FileField(required=False, widget=forms.FileInput(attrs={
+        # No attributes
+    }))
+
+    class Meta:
+        model = Profile
+        fields = ['biography', 'avatar']
 
 # Authentication/Log in form
 class LogInForm(AuthenticationForm):
