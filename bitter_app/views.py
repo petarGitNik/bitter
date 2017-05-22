@@ -69,7 +69,6 @@ def log_in(request):
     if request.method == 'POST':
         log_in_form = LogInForm(data=request.POST)
         if log_in_form.is_valid():
-            #authenticate(username=log_in_form.get_user().username, password=log_in_form.get_user().password)
             login(request, log_in_form.get_user())
             return redirect(reverse('bitter:index'))
         else:
