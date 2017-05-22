@@ -1,0 +1,217 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font-family: arial, sans-serif;
+}
+
+body {
+	min-height: 100%;
+	position: relative;
+}
+
+.anchor {
+	display: inline-block;
+	line-height: 40px;
+	margin-left: 25px;
+	text-decoration: none;
+	font-family: arial, sans-serif;
+	color: #ffffff;
+	-webkit-transition: 500ms linear 0s;
+	-moz-transition: 500ms linear 0s;
+	-o-transition: 500ms linear 0s;
+	transition: 500ms linear 0s;
+}
+
+.anchor:hover {
+	color: #ffffff;
+	text-shadow: -1px 1px 8px #fff, 1px -1px 8px #fff;
+}
+
+header {
+	background-color: #800000;
+	margin-bottom: 60px;
+}
+
+.right-nav {
+	position: absolute;
+	right: 25px;
+}
+
+#container {
+	padding-bottom: 40px;
+}
+
+#intro {
+	float: left;
+	width: 20%;
+	margin-left: 25%;
+	padding: 2em;
+	color: #ffffff;
+}
+
+#intro-forms {
+	float: left;
+	width: 20%;
+	margin-right: 20%;
+	padding: 2em;
+}
+
+.home-forms {
+	background-color: #ffffff;
+	padding: 5px;
+	margin-bottom: 20px;
+}
+
+#login {
+	border-radius: 4px;
+}
+
+#signup {
+	border-radius: 4px;
+	text-align: center;
+}
+
+input[type=text], input[type=password] {
+	width: 100%;
+	padding: 10px 20px;
+	margin: 4px 0px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type=submit] {
+	width: 100%;
+	padding: 10px 20px;
+	margin: 8px 0px;
+}
+
+#choose-file {
+	margin-left: 5px;
+}
+
+.about {
+	width: 40%;
+	margin: auto;
+	text-align: justify;
+	font-size: 1.5em;
+}
+
+.avatar {
+	float: left;
+	margin-left: 20%;
+}
+
+.bitts {
+	float: left;
+	margin-left: 5%;
+	width: 40%;
+}
+
+.bitts-home, .users, .user-profile {
+	margin: auto;
+	width: 40%;
+}
+
+.user-profile {
+
+}
+
+#user-avatar {
+	display: block;
+	width: 200px;
+	height: 200px;
+	border-style: solid;
+	border-width: 10px;
+	border-radius: 10px;
+}
+
+#bio {
+	width: 220px;
+	text-align: justify;
+}
+
+#biography {
+	resize: vertical;
+	box-sizing: border-box;
+	width: 100%;
+	margin: 4px 0px;
+	font-family: arial, sans-serif;
+	font-size: 0.9em;
+	padding: 6px 18px;
+}
+
+#profile-pic {
+	width: 200px;
+	height: 200px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+	border-radius: 5px;
+}
+
+.individual-bitt, .new-bitt, .user-details {
+	border-style: solid;
+	border-color: #e6e6e6;
+	border-width: 1px;
+	border-radius: 1px;
+	margin: 5px 0px 5px 0px;
+	padding: 5px;
+	position: relative;
+}
+
+.new-bitt {
+	overflow: hidden;
+}
+
+#new-bitt-text {
+	width: 100%;
+	box-sizing: border-box;
+	margin: 0px 0px 5px 0px;
+	resize: vertical;
+	font-family: arial, sans-serif;
+	font-size: 0.9em;
+	padding: 6px 6px;
+}
+
+.new-bitt-button {
+	float: right;
+	display: inline-block;
+	margin-right: 3px;
+}
+
+#chars-left {
+	margin-top: 5px;
+	margin-left: 5px;
+	color: #808080;
+	display: inline-block;
+}
+
+.bitt-avatar {
+	float: left;
+	width: 50px;
+	height: 50px;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 1px;
+}
+
+.bitt-text {
+	margin-left: 60px;
+	text-align: justify;
+}
+
+.details {
+	margin-left: 60px;
+}
+
+.name {
+	margin-left: 10px;
+	font-weight: bold;
+}
+
+.username, .time {
+	color: #808080;
+}

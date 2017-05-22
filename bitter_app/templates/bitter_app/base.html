@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'bitter_app/css/stylesheet.css' %}">
+	<script type="text/javascript" src="{% static 'bitter_app/scripts/jquery-3.2.1.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'bitter_app/scripts/script.js' %}"></script>
+	<title>Bitter - Go on, say your opinion</title>
+</head>
+<body>
+
+{% block header %}
+	<header>
+		<span class="left-nav">
+			<a class="anchor" href="#">Home</a>
+			<a class="anchor" href="{% url 'bitter:about' %}">About</a>
+		</span>
+		<span class="right-nav">
+			<a class="anchor" href="#">Bitts</a>
+			<a class="anchor" href="#">Users</a>
+			<a class="anchor" href="#">Profile</a>
+			<a class="anchor" href="#">Logout</a>
+		</span>
+	</header>
+{% endblock header %}
+
+	<div id="container">
+
+    {% block content %}
+    {% endblock content %}
+
+	</div>
+
+</body>
+</html>

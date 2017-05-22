@@ -7,6 +7,13 @@
 ├── bitter_app
 │   ├── migrations
 │   │   └── __init__.py
+│   ├── static
+│   │   └── bitter_app
+│   │       ├── css
+│   │       ├── images
+│   │       └── scripts
+│   ├── templates
+│   │   └── bitter_app
 │   ├── admin.py
 │   ├── apps.py
 │   ├── __init__.py
@@ -17,7 +24,17 @@
 │   ├── css
 │   │   └── stylesheet.css
 │   ├── images
+│   │   ├── floppy-disk-computer-163161.png
+│   │   ├── person-human-male-man.jpg
+│   │   ├── pexels-photo-107868.jpeg
+│   │   ├── pexels-photo-167964.jpeg
+│   │   ├── pexels-photo-221491.jpeg
+│   │   ├── pexels-photo-249203.jpeg
+│   │   ├── pexels-photo-251829.jpeg
+│   │   ├── pexels-photo-91227.jpeg
+│   │   └── portrait-angry.jpg
 │   ├── scripts
+│   │   ├── jquery-3.2.1.min.js
 │   │   └── script.js
 │   ├── about.html
 │   ├── bitts.html
@@ -29,4 +46,4 @@
 ├── manage.py
 └── README.md
 
-7 directories, 22 files
+14 directories, 32 files
