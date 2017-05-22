@@ -7,6 +7,7 @@ from django.shortcuts import redirect
 from django.shortcuts import render
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
+from django.contrib.auth import logout
 from bitter_app.forms import UserCreateForm
 from bitter_app.forms import LogInForm
 
@@ -16,7 +17,7 @@ def index(request, user_create_form=None, log_in_form=None):
     displays home page with sign up and registration form.
     """
     if request.user.is_authenticated():
-        pass
+        return render(request, 'bitter_app/home.html')
     else:
         user_create_form = user_create_form or UserCreateForm()
         log_in_form = log_in_form or LogInForm()
@@ -25,6 +26,7 @@ def index(request, user_create_form=None, log_in_form=None):
             'user_create_form' : user_create_form,
         })
 
+# The navbar logic does not work!
 def about(request, show_full_nav=False):
     """
     If user is logged in show the full navigation bar.
@@ -56,5 +58,21 @@ def signup(request):
         else:
             # Add error messages when sign up fails
             return index(request, user_create_form=user_create_form)
+    else:
+        return redirect(reverse('bitter:index'))
+
+def log_out(request):
+    logout(request)
+    return redirect(reverse('bitter:index'))
+
+def log_in(request):
+    if request.method == 'POST':
+        log_in_form = LogInForm(data=request.POST)
+        if log_in_form.is_valid():
+            #authenticate(username=log_in_form.get_user().username, password=log_in_form.get_user().password)
+            login(request, log_in_form.get_user())
+            return redirect(reverse('bitter:index'))
+        else:
+            return index(request, log_in_form=log_in_form)
     else:
         return redirect(reverse('bitter:index'))

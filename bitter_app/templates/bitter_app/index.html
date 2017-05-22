@@ -24,7 +24,7 @@ body { background-image: url("{% static 'bitter_app/images/pexels-photo-249203.j
 		</div>
 		<div id="intro-forms">
 
-			<form class="home-forms" id="login" action="#" method="post">
+			<form class="home-forms" id="login" action="{% url 'bitter:login' %}" method="post">
 				{% csrf_token %}
         {% for field in log_in_form %}
           {{ field }}
