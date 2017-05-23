@@ -3,6 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django import forms
 from bitter_app.models import Profile
+from bitter_app.models import Bitts
 
 # Registration form (Sign up form)
 class UserCreateForm(UserCreationForm):
@@ -64,3 +65,12 @@ class LogInForm(AuthenticationForm):
     password = forms.CharField(required=True, widget=forms.PasswordInput(attrs={'placeholder' : 'Password'}))
 
 # Bitt form (bitt is like tweet)
+class BittsForm(form.ModelForm):
+    bitt = forms.CharField(required=True, widget=forms.Textarea(attrs={
+        'id' : 'new-bitt-text',
+        'placeholder' : 'What\'s bothering you today?',
+        'maxlength' : '140',
+    }))
+
+    class Meta:
+        model = Bitts
