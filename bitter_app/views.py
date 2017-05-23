@@ -88,14 +88,15 @@ def log_in(request):
 def profile(request, user_form=None, profile_form=None):
     if request.method == 'POST':
         user_form = UserCreateForm(data=request.POST, instance=request.user)
-        profile_form = EditProfileForm(data=request.POST, instance=request.user.profile)
+        # Make a function to check a file size, settings.py: CONTENT_TYPES, MAX_UPLOAD_SIZE
+        profile_form = EditProfileForm(request.POST, request.FILES, instance=request.user.profile)
         if user_form.is_valid() and profile_form.is_valid():
             user = user_form.save()
             user.set_password(user_form.clean_password())
             user.save()
             profile_form.save()
             # Should this redirect back to home/index/root or profile?
-            # user not authenticated after profile edit? yes, it is not
+            # user object not authenticated after profile edit? yes, it is not
             # and it is not logged in
             # user should be re-authenticated and logged in again
             # maybe a separate function to deal with it, or extra case in log_in?
@@ -112,3 +113,7 @@ def profile(request, user_form=None, profile_form=None):
             'user_form' : user_form,
             'profile_form' : profile_form,
         })
+
+@login_required
+def bitts(request):
+    return render(request, 'bitter_app/bitts.html', { 'user' : request.user })

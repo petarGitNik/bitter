@@ -4,13 +4,19 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.conf import settings
 
 # Create your models here.
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     biography = models.TextField(max_length=250, blank=True)
-    avatar = models.FileField(upload_to='avatars/%Y/%m/%d')
+    avatar = models.FileField(
+        upload_to='avatars/%Y/%m/%d',
+        default='avatars/avatar_default.jpeg'
+    )
 
+# Two following definitions make sure that pforile is created and updated
+# simultaneously with the user model
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:

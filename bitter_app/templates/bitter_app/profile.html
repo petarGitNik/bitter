@@ -6,7 +6,7 @@
 
   <h1>Edit your profile:</h1>
 
-  <form class="profile-form" action="{% url 'bitter:profile' %}" method="post">
+  <form class="profile-form" enctype="multipart/form-data" action="{% url 'bitter:profile' %}" method="post">
     {% csrf_token %}
 
     {{ profile_form.biography }}
