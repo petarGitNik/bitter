@@ -9,8 +9,10 @@
 
     {% for user in users %}
     <div class="user-details">
-      <img class="bitt-avatar" src="{{ user.profile.avatar.url }}">
-      <span class="name">{{ user.first_name }} {{ user.last_name }}</span>
+      <a class="users-username" href="{% url 'bitter:user' user.username %}">
+        <img class="bitt-avatar" src="{{ user.profile.avatar.url }}">
+        <span class="name">{{ user.first_name }} {{ user.last_name }}</span>
+      </a>
       <span class="username"> @{{ user.username }} </span>
       <p class="details">
         {{ user.bitt_count }} bitts &verbar;

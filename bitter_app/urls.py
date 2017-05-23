@@ -13,5 +13,6 @@ urlpatterns = [
     url(r'^bitts/$', views.bitts, name='bitts'),
     url(r'^submit/$', views.bitt_submit, name='submit'),
     url(r'^users/$', views.users, name='users'),
-    url(r'^users/(?P<username>)/$', views.users, name='user')
+    # https://docs.python.org/2.7/howto/regex.html
+    url(r'^users/(?P<username>\w{0,30})/$', views.users, name='user'),
 ]

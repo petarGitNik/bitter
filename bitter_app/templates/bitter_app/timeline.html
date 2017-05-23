@@ -3,8 +3,10 @@
 
   {% for bitt in bitts %}
   <div class="individual-bitt">
-    <img class="bitt-avatar" src="{{ bitt.user.profile.avatar.url }}">
-    <span class="name">{{ bitt.user.first_name }} {{ bitt.user.last_name }}</span>
+    <a class="timeline-username" href="{% url 'bitter:user' bitt.user.username %}">
+      <img class="bitt-avatar" src="{{ bitt.user.profile.avatar.url }}">
+      <span class="name">{{ bitt.user.first_name }} {{ bitt.user.last_name }}</span>
+    </a>
     <span class="username"> @{{ bitt.user.username }} </span>
     <span class="time">{{ bitt.date_created|timesince }}</span>
     <p class=bitt-text>{{ bitt.bitt_text }}</p>

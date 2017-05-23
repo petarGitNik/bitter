@@ -155,9 +155,25 @@ def bitt_submit(request):
         return redirect(reverse('bitter:index'))
 
 @login_required
-def users(request, username=''):
+def users(request, username='', native_user=False, bitt_form=None, return_to=''):
     if username:
-        pass
+        # If user is clicking on himself
+        if username == request.user.username:
+            native_user = True
+            bitt_form = BittForm()
+            return_to = reverse('bitter:user', args=[username])
+
+        # get object or 404 user - should be before conditional statement
+        user = User.objects.get(username=username)
+        bitts = Bitts.objects.filter(user_id=user.id)
+
+        return render(request, 'bitter_app/user_username.html', {
+            'native_user' : native_user,
+            'bitt_form' : bitt_form,
+            'return_to' : return_to,
+            'bitts' : bitts,
+            'user' : user,
+        })
     else:
         return render(request, 'bitter_app/users.html', {
             'users' : User.objects.all().annotate(bitt_count=Count('bitts')),

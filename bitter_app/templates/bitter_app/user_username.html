@@ -1,0 +1,24 @@
+{% extends 'bitter_app/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="avatar">
+  <img id="user-avatar" src="{{ user.profile.avatar.url }}">
+
+  <p id="bio">{{ user.profile.biography }}</p>
+</div>
+
+<div class="bitts">
+
+  {% block new_bitt %}
+    {% if native_user %}
+      {% include 'bitter_app/new_bitt.html' %}
+    {% endif %}
+  {% endblock new_bitt %}
+
+  {% block timeline %}
+    {% include 'bitter_app/timeline.html' %}
+  {% endblock timeline %}
+
+</div>
+{% endblock content %}

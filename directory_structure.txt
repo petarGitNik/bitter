@@ -6,19 +6,41 @@
 │   └── wsgi.py
 ├── bitter_app
 │   ├── migrations
+│   │   ├── 0001_initial.py
+│   │   ├── 0002_auto_20170523_1253.py
+│   │   ├── 0003_auto_20170523_1311.py
+│   │   ├── 0004_profile_follows.py
 │   │   └── __init__.py
 │   ├── static
 │   │   └── bitter_app
 │   │       ├── css
+│   │       │   └── stylesheet.css
 │   │       ├── images
+│   │       │   ├── avatar_default.jpeg
+│   │       │   └── pexels-photo-249203.jpeg
 │   │       └── scripts
+│   │           ├── jquery-3.2.1.min.js
+│   │           └── script.js
 │   ├── templates
 │   │   └── bitter_app
+│   │       ├── about.html
+│   │       ├── base.html
+│   │       ├── bitts.html
+│   │       ├── debug_template.html
+│   │       ├── home.html
+│   │       ├── index.html
+│   │       ├── new_bitt.html
+│   │       ├── profile.html
+│   │       ├── timeline.html
+│   │       ├── users.html
+│   │       └── user_username.html
 │   ├── admin.py
 │   ├── apps.py
+│   ├── forms.py
 │   ├── __init__.py
 │   ├── models.py
 │   ├── tests.py
+│   ├── urls.py
 │   └── views.py
 ├── examples
 │   ├── css
@@ -42,8 +64,16 @@
 │   ├── home.html
 │   ├── index.html
 │   └── profile.html
+├── media
+│   └── avatars
+│       ├── 2017
+│       │   └── 05
+│       │       └── 23
+│       │           ├── 1494919314470_3wfiGZg.jpg
+│       │           └── 1494919314470.jpg
+│       └── avatar_default.jpeg
 ├── directory_structure.txt
 ├── manage.py
 └── README.md
 
-14 directories, 32 files
+19 directories, 57 files
