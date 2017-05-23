@@ -16,6 +16,8 @@ This project is meant to be a very simple Twitter clone app. It is not meant to 
 
 ## Status of a project [still in progress]
 
-Make an example folder which contains basic templates for each of the described features.
+~~Make an example folder which contains basic templates for each of the described features.~~
 
 When one clicks on a profile, instead of a bitt box, there should be a follow button. If a user is a friend, then no button or bitt box should be displayed. Or maybe, an unfollow button should be displayed instead.
+
+Add relevant error messages.

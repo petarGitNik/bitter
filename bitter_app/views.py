@@ -41,8 +41,8 @@ def about(request, show_full_nav=False):
     })
 
 def signup(request):
-    user_create_form = UserCreateForm(data=request.POST)
     if request.method == 'POST':
+        user_create_form = UserCreateForm(data=request.POST)
         if user_create_form.is_valid():
             username = user_create_form.cleaned_data['username']
             password = user_create_form.clean_password()
@@ -75,6 +75,7 @@ def log_in(request):
             login(request, log_in_form.get_user())
             return redirect(reverse('bitter:index'))
         else:
+            # Add error messages when log in fails
             return index(request, log_in_form=log_in_form)
     else:
         return redirect(reverse('bitter:index'))
@@ -84,9 +85,26 @@ def log_in(request):
 # i.e. 404
 @login_required
 @transaction.atomic
-def profile(request):
+def profile(request, user_form=None, profile_form=None):
     if request.method == 'POST':
-        pass
+        user_form = UserCreateForm(data=request.POST, instance=request.user)
+        profile_form = EditProfileForm(data=request.POST, instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user = user_form.save()
+            user.set_password(user_form.clean_password())
+            user.save()
+            profile_form.save()
+            # Should this redirect back to home/index/root or profile?
+            # user not authenticated after profile edit? yes, it is not
+            # and it is not logged in
+            # user should be re-authenticated and logged in again
+            # maybe a separate function to deal with it, or extra case in log_in?
+            login(request, user)
+            return redirect(reverse('bitter:index'))
+        else:
+            # This should throw error or warning message e.g.
+            # passwords should match, and so on
+            return redirect(reverse('bitter:profile'))
     else:
         user_form = UserCreateForm(instance = request.user)
         profile_form = EditProfileForm(instance = request.user.profile)
