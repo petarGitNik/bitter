@@ -18,6 +18,11 @@ class Profile(models.Model):
         upload_to='avatars/%Y/%m/%d',
         default='avatars/avatar_default.jpeg'
     )
+    follows = models.ManyToManyField(
+        'self',
+        related_name='followed_by',
+        symmetrical=False
+    )
 
 # Two following definitions make sure that pforile is created and updated
 # simultaneously with the user model
