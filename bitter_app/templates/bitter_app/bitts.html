@@ -14,15 +14,9 @@
     {% include 'bitter_app/new_bitt.html' %}
   {% endblock new_bitt %}
 
-  <div class="list-of-bitts">
-
-    <div class="individual-bitt">
-      <img class="bitt-avatar" src="./images/person-human-male-man.jpg">
-      <span class="name">Angry Man</span><span class="username"> @arrrgghhh </span><span class="time">17min</span>
-      <p class=bitt-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare pharetra leo. Maecenas placerat semper felis et rutrum. Ut cursus nulla rhoncus tincidunt vulputate.</p>
-    </div>
-
-  </div>
+  {% block timeline %}
+    {% include 'bitter_app/timeline.html' %}
+  {% endblock timeline %}
 
 </div>
 {% endblock content %}

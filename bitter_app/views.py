@@ -15,6 +15,7 @@ from bitter_app.forms import UserCreateForm
 from bitter_app.forms import LogInForm
 from bitter_app.forms import EditProfileForm
 from bitter_app.forms import BittForm
+from bitter_app.models import Bitts
 
 def index(request, user_create_form=None, log_in_form=None):
     """
@@ -22,7 +23,11 @@ def index(request, user_create_form=None, log_in_form=None):
     displays home page with sign up and registration form.
     """
     if request.user.is_authenticated():
+        # tek bitts from friends and from self, bind them and send into context
         return render(request, 'bitter_app/home.html', {
+            # temp
+            'bitts' : Bitts.objects.filter(user_id=request.user.id),
+            # temp
             'bitt_form' : BittForm(),
             'return_to' : reverse('bitter:index')
         })
@@ -122,11 +127,13 @@ def profile(request, user_form=None, profile_form=None):
 @login_required
 def bitts(request):
     return render(request, 'bitter_app/bitts.html', {
+        'bitts' : Bitts.objects.filter(user_id=request.user.id),
         'user' : request.user,
         'bitt_form' : BittForm(),
         'return_to' : reverse('bitter:bitts'),
     })
 
+# Nothing happens when submit button is clicked. Why?
 @login_required
 def bitt_submit(request):
     #return render(request, 'bitter_app/debug_template.html', {
