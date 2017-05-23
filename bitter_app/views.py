@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from django.http import HttpResponse
 from django.urls import reverse
 from django.core.exceptions import PermissionDenied
+from django.core.exceptions import ValidationError
 from django.db import transaction
 from django.shortcuts import redirect
 from django.shortcuts import render
@@ -13,6 +14,7 @@ from django.contrib.auth.decorators import login_required
 from bitter_app.forms import UserCreateForm
 from bitter_app.forms import LogInForm
 from bitter_app.forms import EditProfileForm
+from bitter_app.forms import BittForm
 
 def index(request, user_create_form=None, log_in_form=None):
     """
@@ -20,7 +22,10 @@ def index(request, user_create_form=None, log_in_form=None):
     displays home page with sign up and registration form.
     """
     if request.user.is_authenticated():
-        return render(request, 'bitter_app/home.html')
+        return render(request, 'bitter_app/home.html', {
+            'bitt_form' : BittForm(),
+            'return_to' : reverse('bitter:index')
+        })
     else:
         user_create_form = user_create_form or UserCreateForm()
         log_in_form = log_in_form or LogInForm()
@@ -116,4 +121,27 @@ def profile(request, user_form=None, profile_form=None):
 
 @login_required
 def bitts(request):
-    return render(request, 'bitter_app/bitts.html', { 'user' : request.user })
+    return render(request, 'bitter_app/bitts.html', {
+        'user' : request.user,
+        'bitt_form' : BittForm(),
+        'return_to' : reverse('bitter:bitts'),
+    })
+
+@login_required
+def bitt_submit(request):
+    #return render(request, 'bitter_app/debug_template.html', {
+    #    'error' : request.method == 'POST',
+    #})
+    if request.method == 'POST':
+        bitt_form = BittForm(data=request.POST)
+        return_to = request.POST.get('return_to', reverse('bitter:index'))
+        if bitt_form.is_valid():
+            bitt = bitt_form.save(commit=False)
+            bitt.user = request.user
+            bitt.save()
+            return redirect(return_to)
+        else:
+            return redirect(reverse('bitter:about'))
+            raise ValidationError("Invalid data for a bitt form.")
+    else:
+        return redirect(reverse('bitter:index'))

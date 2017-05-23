@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^login/$', views.log_in, name='login'),
     url(r'^profile/$', views.profile, name='profile'),
     url(r'^bitts/$', views.bitts, name='bitts'),
+    url(r'^submit/$', views.bitt_submit, name='submit'),
 ]

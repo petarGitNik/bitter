@@ -1,2 +1,54 @@
 {% extends 'bitter_app/base.html' %}
 {% load static %}
+
+{% block content %}
+
+<div class="bitts-home">
+
+  {% block new_bitt %}
+    {% include 'bitter_app/new_bitt.html' %}
+  {% endblock new_bitt %}
+
+  <div class="list-of-bitts">
+
+    <div class="individual-bitt">
+      <img class="bitt-avatar" src="./images/person-human-male-man.jpg">
+      <span class="name">Angry Man</span><span class="username"> @arrrgghhh </span><span class="time">17min</span>
+      <p class=bitt-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare pharetra leo. Maecenas placerat semper felis et rutrum. Ut cursus nulla rhoncus tincidunt vulputate.</p>
+    </div>
+
+    <div class="individual-bitt">
+      <img class="bitt-avatar" src="./images/pexels-photo-251829.jpeg">
+      <span class="name">Moderate Anger</span><span class="username"> @moody </span><span class="time">19min</span>
+      <p class=bitt-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare pharetra leo. Maecenas placerat semper felis et rutrum. Ut cursus nulla rhoncus tincidunt vulputate.</p>
+    </div>
+
+    <div class="individual-bitt">
+      <img class="bitt-avatar" src="./images/portrait-angry.jpg">
+      <span class="name">Wrath Incarnate</span><span class="username"> @fury </span><span class="time">25min</span>
+      <p class=bitt-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare pharetra leo. Maecenas placerat semper felis et rutrum. Ut cursus nulla rhoncus tincidunt vulputate.</p>
+    </div>
+
+    <div class="individual-bitt">
+      <img class="bitt-avatar" src="./images/pexels-photo-107868.jpeg">
+      <span class="name">Chill Deal</span><span class="username"> @mindfulness </span><span class="time">37min</span>
+      <p class=bitt-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare pharetra leo. Maecenas placerat semper felis et rutrum. Ut cursus nulla rhoncus tincidunt vulputate.</p>
+    </div>
+
+    <div class="individual-bitt">
+      <img class="bitt-avatar" src="./images/person-human-male-man.jpg">
+      <span class="name">Angry Man</span><span class="username"> @arrrgghhh </span><span class="time">51min</span>
+      <p class=bitt-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare pharetra leo. Maecenas placerat semper felis et rutrum. Ut cursus nulla rhoncus tincidunt vulputate.</p>
+    </div>
+
+    <div class="individual-bitt">
+      <img class="bitt-avatar" src="./images/person-human-male-man.jpg">
+      <span class="name">Angry Man</span><span class="username"> @arrrgghhh </span><span class="time">55min</span>
+      <p class=bitt-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare pharetra leo. Maecenas placerat semper felis et rutrum. Ut cursus nulla rhoncus tincidunt vulputate.</p>
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock content %}

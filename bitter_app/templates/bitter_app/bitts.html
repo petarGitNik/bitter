@@ -10,13 +10,9 @@
 
 <div class="bitts">
 
-  <div class="new-bitt">
-    <form class="new-bitt-form" action="/bitt" method="post">
-      <textarea id="new-bitt-text" name="bitt" placeholder="What's bothering you today?" maxlength="140"></textarea>
-      <span id="chars-left"> <span id="chars">140</span> characters left</span>
-      <input class="new-bitt-button" type="button" value="Bitt it!">
-    </form>
-  </div>
+  {% block new_bitt %}
+    {% include 'bitter_app/new_bitt.html' %}
+  {% endblock new_bitt %}
 
   <div class="list-of-bitts">
 
