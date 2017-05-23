@@ -6,7 +6,11 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.conf import settings
 
-# Create your models here.
+class Bitts(models.Model):
+    user = models.ForeignKey(User)
+    bitt_text = models.CharField(max_length=140)
+    date_created = models.DateTimeField(auto_now=True, blank=True)
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     biography = models.TextField(max_length=250, blank=True)
