@@ -202,6 +202,7 @@ input[type=text], input[type=password] {
 
 .details {
 	margin-left: 60px;
+	color: #4d4d4d;
 }
 
 .name {
