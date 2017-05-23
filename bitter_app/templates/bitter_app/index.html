@@ -29,7 +29,7 @@ body { background-image: url("{% static 'bitter_app/images/pexels-photo-249203.j
         {% for field in log_in_form %}
           {{ field }}
         {% endfor %}
-				<input type="submit" value="Log in">
+				<input class="index-submit" type="submit" value="Log in">
 			</form>
 
 			<form class="home-forms" id="signup" action="{% url 'bitter:signup' %}" method="post">
@@ -38,7 +38,7 @@ body { background-image: url("{% static 'bitter_app/images/pexels-photo-249203.j
         {% for field in user_create_form %}
           {{ field }}
         {% endfor %}
-				<input type="submit" value="Sign up">
+				<input class="index-submit" type="submit" value="Sign up">
 			</form>
 
 		</div>

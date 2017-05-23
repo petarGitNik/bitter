@@ -12,4 +12,6 @@ urlpatterns = [
     url(r'^profile/$', views.profile, name='profile'),
     url(r'^bitts/$', views.bitts, name='bitts'),
     url(r'^submit/$', views.bitt_submit, name='submit'),
+    url(r'^users/$', views.users, name='users'),
+    url(r'^users/(?P<username>)/$', views.users, name='user')
 ]

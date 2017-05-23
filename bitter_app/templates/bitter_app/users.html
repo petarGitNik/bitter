@@ -1,0 +1,27 @@
+{% extends 'bitter_app/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="users">
+
+  <div class="list-of-users">
+
+    {% for user in users %}
+    <div class="user-details">
+      <img class="bitt-avatar" src="{{ user.profile.avatar.url }}">
+      <span class="name">{{ user.first_name }} {{ user.last_name }}</span>
+      <span class="username"> @{{ user.username }} </span>
+      <p class="details">
+        {{ user.bitt_count }} bitts &verbar;
+        {{ user.profile.followed_by.count }} Followers &verbar;
+        {{ user.profile.follows.count }} Following
+      </p>
+    </div>
+    {% endfor %}
+
+  </div>
+
+</div>
+
+{% endblock content %}

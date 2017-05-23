@@ -5,11 +5,13 @@ from django.urls import reverse
 from django.core.exceptions import PermissionDenied
 from django.core.exceptions import ValidationError
 from django.db import transaction
+from django.db.models import Count
 from django.shortcuts import redirect
 from django.shortcuts import render
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.contrib.auth import logout
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from bitter_app.forms import UserCreateForm
 from bitter_app.forms import LogInForm
@@ -133,7 +135,7 @@ def bitts(request):
         'return_to' : reverse('bitter:bitts'),
     })
 
-# Nothing happens when submit button is clicked. Why?
+# Submits empty form :( why? :(
 @login_required
 def bitt_submit(request):
     #return render(request, 'bitter_app/debug_template.html', {
@@ -148,7 +150,15 @@ def bitt_submit(request):
             bitt.save()
             return redirect(return_to)
         else:
-            return redirect(reverse('bitter:about'))
             raise ValidationError("Invalid data for a bitt form.")
     else:
         return redirect(reverse('bitter:index'))
+
+@login_required
+def users(request, username=''):
+    if username:
+        pass
+    else:
+        return render(request, 'bitter_app/users.html', {
+            'users' : User.objects.all().annotate(bitt_count=Count('bitts')),
+        })
