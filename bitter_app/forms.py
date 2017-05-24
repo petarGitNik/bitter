@@ -66,7 +66,7 @@ class LogInForm(AuthenticationForm):
 
 # Bitt form (bitt is like tweet)
 class BittForm(forms.ModelForm):
-    bitt = forms.CharField(required=True, widget=forms.Textarea(attrs={
+    bitt_text = forms.CharField(required=True, widget=forms.Textarea(attrs={
         'id' : 'new-bitt-text',
         'placeholder' : "What's bothering you today?",
         'maxlength' : '140',
@@ -75,5 +75,5 @@ class BittForm(forms.ModelForm):
 
     class Meta:
         model = Bitts
-        fields = ['bitt']
+        fields = ['bitt_text']
         exclude = ('user',)

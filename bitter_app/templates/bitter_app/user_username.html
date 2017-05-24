@@ -13,6 +13,11 @@
   {% block new_bitt %}
     {% if native_user %}
       {% include 'bitter_app/new_bitt.html' %}
+    {% else %}
+      <form class="follow_form" action="#" method="post">
+        {% csrf_token %}
+        <input type="submit" name="" value="Follow">
+      </form>
     {% endif %}
   {% endblock new_bitt %}
 
