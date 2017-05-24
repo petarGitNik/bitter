@@ -14,9 +14,9 @@
     {% if native_user %}
       {% include 'bitter_app/new_bitt.html' %}
     {% else %}
-      <form class="follow_form" action="#" method="post">
+      <form class="follow_form" action="{{ follow.follow_link }}" method="post">
         {% csrf_token %}
-        <input type="submit" name="" value="Follow">
+        <input type="submit" value="{{ follow.follow_option }}">
       </form>
     {% endif %}
   {% endblock new_bitt %}

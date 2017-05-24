@@ -3,7 +3,7 @@ from . import views
 
 app_name = 'bitter'
 urlpatterns = [
-    # root: /
+    # https://docs.python.org/2.7/howto/regex.html
     url(r'^$', views.index , name='index'),
     url(r'^about/$', views.about, name='about'),
     url(r'^signup/$', views.signup, name='signup'),
@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'^bitts/$', views.bitts, name='bitts'),
     url(r'^submit/$', views.bitt_submit, name='submit'),
     url(r'^users/$', views.users, name='users'),
-    # https://docs.python.org/2.7/howto/regex.html
     url(r'^users/(?P<username>\w{0,30})/$', views.users, name='user'),
+    url(r'^follow/$', views.follow, name='follow'),
+    url(r'^unfollow/$', views.unfollow,  name='unfollow'),
 ]

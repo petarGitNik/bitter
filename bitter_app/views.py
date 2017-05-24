@@ -155,13 +155,34 @@ def bitt_submit(request):
         return redirect(reverse('bitter:index'))
 
 @login_required
-def users(request, username='', native_user=False, bitt_form=None, return_to=''):
+def users(request, username='', native_user=False, bitt_form=None, return_to='', follow={}):
+    """
+    If a user is a session user (native_user) do not display follow button, but
+    display a bitt form. The bug here is, the session user has two same pages
+    i.e. /bitts/ is same as /users/[username]/. In any cass, restrict user view
+    to show only users different from a session user. Is this function doing
+    too much? Probably :(
+    """
+    # Display an individual user
     if username:
         # If user is clicking on himself
         if username == request.user.username:
             native_user = True
             bitt_form = BittForm()
             return_to = reverse('bitter:user', args=[username])
+        else:
+            # Do I follow already this user, or not?
+            # If I follow, present me the unfollow option et vice versa
+            if request.user.profile.follows.filter(user__username=username):
+                follow = {
+                    'follow_link' : reverse('bitter:unfollow'),
+                    'follow_option' : 'Unfollow',
+                }
+            else:
+                follow = {
+                    'follow_link' : reverse('bitter:follow'),
+                    'follow_option' : 'Follow',
+                }
 
         # get object or 404 user - should be before conditional statement
         user = User.objects.get(username=username)
@@ -173,8 +194,17 @@ def users(request, username='', native_user=False, bitt_form=None, return_to='')
             'return_to' : return_to,
             'bitts' : bitts,
             'user' : user,
+            'follow' : follow,
         })
     else:
+        # Display a list of users
         return render(request, 'bitter_app/users.html', {
             'users' : User.objects.all().annotate(bitt_count=Count('bitts')),
         })
+
+@login_required
+def follow(request):
+    pass
+
+def unfollow(request):
+    pass
