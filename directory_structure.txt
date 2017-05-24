@@ -68,12 +68,15 @@
 │   └── avatars
 │       ├── 2017
 │       │   └── 05
-│       │       └── 23
-│       │           ├── 1494919314470_3wfiGZg.jpg
-│       │           └── 1494919314470.jpg
+│       │       ├── 23
+│       │       │   ├── 1494919314470_3wfiGZg.jpg
+│       │       │   └── 1494919314470.jpg
+│       │       └── 24
+│       │           ├── 1494919314470.jpg
+│       │           └── enraged_grayscale_300.jpg
 │       └── avatar_default.jpeg
 ├── directory_structure.txt
 ├── manage.py
 └── README.md
 
-19 directories, 57 files
+20 directories, 59 files
