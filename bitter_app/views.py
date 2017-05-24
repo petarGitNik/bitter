@@ -204,7 +204,18 @@ def users(request, username='', native_user=False, bitt_form=None, return_to='',
 
 @login_required
 def follow(request):
-    pass
+    if request.method == 'POST':
+        user_follow_id = request.POST['user_follow_id']
+        user_to_follow = User.objects.get(id=user_follow_id)
+        request.user.profile.follows.add(user_to_follow.profile)
+        return redirect(reverse('bitter:user', args=[user_to_follow.username]))
+    return redirect(reverse('bitter:users'))
 
+@login_required
 def unfollow(request):
-    pass
+    if request.method == 'POST':
+        user_follow_id = request.POST['user_follow_id']
+        user_to_unfollow = User.objects.get(id=user_follow_id)
+        request.user.profile.follows.remove(user_to_unfollow.profile)
+        return redirect(reverse('bitter:user', args=[user_to_unfollow.username]))
+    return redirect(reverse('bitter:users'))

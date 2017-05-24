@@ -16,6 +16,7 @@
     {% else %}
       <form class="follow_form" action="{{ follow.follow_link }}" method="post">
         {% csrf_token %}
+        <input type="hidden" name="user_follow_id" value="{{ user.id }}">
         <input type="submit" value="{{ follow.follow_option }}">
       </form>
     {% endif %}
