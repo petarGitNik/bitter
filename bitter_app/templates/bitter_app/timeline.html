@@ -1,6 +1,10 @@
 {% block timeline %}
 <div class="list-of-bitts">
 
+  {% if not bitts %}
+    <p>User has not shared any bitt yet.</p>
+  {% endif %}
+
   {% for bitt in bitts %}
   <div class="individual-bitt">
     <a class="timeline-username" href="{% url 'bitter:user' bitt.user.username %}">
