@@ -25,11 +25,11 @@ def index(request, user_create_form=None, log_in_form=None):
     displays home page with sign up and registration form.
     """
     if request.user.is_authenticated():
-        # tek bitts from friends and from self, bind them and send into context
+        own_bitts = Bitts.objects.filter(user_id=request.user.id).order_by('-date_created')
+        friends_bitts = Bitts.objects.filter(user__profile__in=request.user.profile.follows.all()).order_by('-date_created')
+        bitts = own_bitts | friends_bitts
         return render(request, 'bitter_app/home.html', {
-            # temp
-            'bitts' : Bitts.objects.filter(user_id=request.user.id),
-            # temp
+            'bitts' : bitts,
             'bitt_form' : BittForm(),
             'return_to' : reverse('bitter:index')
         })
