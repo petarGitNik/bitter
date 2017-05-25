@@ -16,10 +16,10 @@ It is limited in scope and features. It's features include:
 
 Here are some screenshots:
 
-![Site Homepage](./examples/images/Screenshot-from-2017-05-26 00-10-21.png)
+![Site Homepage](./examples/images/Screenshot-from-2017-05-26-00-10-21.png)
 
-![User homepage](./examples/images/Screenshot-from-2017-05-26 00-11-35.png)
+![User homepage](./examples/images/Screenshot-from-2017-05-26-00-11-35.png)
 
-![User's timeline](./examples/images/Screenshot-from-2017-05-26 00-12-14.png)
+![User's timeline](./examples/images/Screenshot-from-2017-05-26-00-12-14.png)
 
-![List of users](./examples/images/Screenshot-from-2017-05-26 00-13-04.png)
+![List of users](./examples/images/Screenshot-from-2017-05-26-00-13-04.png)
