@@ -17,13 +17,19 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
+# SECURITY WARNING: don't run with debug turned on in production!
+#DEBUG = False
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # Load passwords for development environment
-with open('./sensitive/config.passwords', 'r') as f:
-	config_passwords = f.read().splitlines()
+if DEBUG:
+    with open('./sensitive/config.passwords', 'r') as f:
+	       config_passwords = f.read().splitlines()
+else:
+    config_passwords = ['var value', 'var value', 'var value', 'var value', ]
 
 # [['variable_name', 'variable_value'], ...]
 secrets = []
@@ -34,9 +40,6 @@ for secret in config_passwords:
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', secrets[0][1])
 
-# SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = False
-DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
 ALLOWED_HOSTS = ['*']
 
