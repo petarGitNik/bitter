@@ -25,11 +25,8 @@ DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # Load passwords for development environment
-if DEBUG:
-    with open('./sensitive/config.passwords', 'r') as f:
-	       config_passwords = f.read().splitlines()
-else:
-    config_passwords = ['var value', 'var value', 'var value', 'var value', ]
+with open('./sensitive/config.passwords', 'r') as f:
+	config_passwords = f.read().splitlines()
 
 # [['variable_name', 'variable_value'], ...]
 secrets = []
