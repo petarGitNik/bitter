@@ -41,7 +41,6 @@ def index(request, user_create_form=None, log_in_form=None):
             'user_create_form' : user_create_form,
         })
 
-# The navbar logic does not work!
 def about(request, show_full_nav=False):
     """
     If user is logged in show the full navigation bar.
@@ -53,8 +52,14 @@ def about(request, show_full_nav=False):
     })
 
 def signup(request):
+    """
+    Deal with the signup form. If the user is successfully signed up, display
+    the home page. If the user form is not valid, load the index page with form
+    displaying errors.
+    """
     if request.method == 'POST':
         user_create_form = UserCreateForm(data=request.POST)
+
         if user_create_form.is_valid():
             username = user_create_form.cleaned_data['username']
             password = user_create_form.clean_password()
@@ -70,34 +75,42 @@ def signup(request):
                 raise PermissionDenied("No backend authenticated the credentials")
 
             return redirect(reverse('bitter:index'))
-        else:
-            # Add error messages when sign up fails
-            return index(request, user_create_form=user_create_form)
-    else:
-        return redirect(reverse('bitter:index'))
+
+        return index(request, user_create_form=user_create_form)
+    return redirect(reverse('bitter:index'))
 
 def log_out(request):
+    """
+    Log out the user from the site.
+    """
     logout(request)
     return redirect(reverse('bitter:index'))
 
 def log_in(request):
+    """
+    Deal with the log in form. If the user is successfully logged in, display
+    the home page. If the user form is not valid, load the index page with form
+    displaying errors.
+    """
     if request.method == 'POST':
         log_in_form = LogInForm(data=request.POST)
+
         if log_in_form.is_valid():
             login(request, log_in_form.get_user())
             return redirect(reverse('bitter:index'))
-        else:
-            # Add error messages when log in fails
-            return index(request, log_in_form=log_in_form)
-    else:
-        return redirect(reverse('bitter:index'))
+
+        return index(request, log_in_form=log_in_form)
+    return redirect(reverse('bitter:index'))
 
 # right click on profile page, view source, leads to
 # view-source:http://127.0.0.1:8000/accounts/login/?next=/profile/
-# i.e. 404
+# i.e. 404, why?
 @login_required
 @transaction.atomic
 def profile(request, user_form=None, profile_form=None):
+    """
+    Display a page where user can edit their profile.
+    """
     if request.method == 'POST':
         user_form = UserCreateForm(data=request.POST, instance=request.user)
         # Make a function to check a file size, settings.py: CONTENT_TYPES, MAX_UPLOAD_SIZE
@@ -107,16 +120,12 @@ def profile(request, user_form=None, profile_form=None):
             user.set_password(user_form.clean_password())
             user.save()
             profile_form.save()
-            # Should this redirect back to home/index/root or profile?
-            # user object not authenticated after profile edit? yes, it is not
-            # and it is not logged in
-            # user should be re-authenticated and logged in again
-            # maybe a separate function to deal with it, or extra case in log_in?
+
+            # should user be re-authenticated before this?
             login(request, user)
             return redirect(reverse('bitter:index'))
         else:
-            # This should throw error or warning message e.g.
-            # passwords should match, and so on
+            # This should throw error or warning messages
             return redirect(reverse('bitter:profile'))
     else:
         user_form = UserCreateForm(instance = request.user)
@@ -135,24 +144,25 @@ def bitts(request):
         'return_to' : reverse('bitter:bitts'),
     })
 
-# Submits empty form :( why? :(
 @login_required
 def bitt_submit(request):
-    #return render(request, 'bitter_app/debug_template.html', {
-    #    'error' : request.method == 'POST',
-    #})
+    """
+    Submit a 'bitt'. After a status is posted successfully redired a user to the
+    page from which they posted a 'bitt'. If there is no information about the
+    page the user is currently on, redirect them to home page.
+    """
     if request.method == 'POST':
         bitt_form = BittForm(data=request.POST)
         return_to = request.POST.get('return_to', reverse('bitter:index'))
+
         if bitt_form.is_valid():
             bitt = bitt_form.save(commit=False)
             bitt.user = request.user
             bitt.save()
             return redirect(return_to)
-        else:
-            raise ValidationError("Invalid data for a bitt form.")
-    else:
-        return redirect(reverse('bitter:index'))
+
+        raise ValidationError("Invalid data for a bitt form.")
+    return redirect(reverse('bitter:index'))
 
 @login_required
 def users(request, username='', native_user=False, bitt_form=None, return_to='', follow={}):
@@ -204,6 +214,9 @@ def users(request, username='', native_user=False, bitt_form=None, return_to='',
 
 @login_required
 def follow(request):
+    """
+    Follow another user.
+    """
     if request.method == 'POST':
         user_follow_id = request.POST['user_follow_id']
         user_to_follow = User.objects.get(id=user_follow_id)
@@ -213,6 +226,9 @@ def follow(request):
 
 @login_required
 def unfollow(request):
+    """
+    Unfollow a user.
+    """
     if request.method == 'POST':
         user_follow_id = request.POST['user_follow_id']
         user_to_unfollow = User.objects.get(id=user_follow_id)

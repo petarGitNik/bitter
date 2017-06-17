@@ -26,6 +26,22 @@ body { background-image: url("{% static 'bitter_app/images/pexels-photo-249203.j
 
 			<form class="home-forms" id="login" action="{% url 'bitter:login' %}" method="post">
 				{% csrf_token %}
+
+				{% if log_in_form.errors %}
+					{% for field in log_in_form %}
+						{% for error in field.errors %}
+							<div class="form-erros">
+								<p>{{ error|escape }}</p>
+							</div>
+						{% endfor %}
+					{% endfor %}
+					{% for error in log_in_form.non_field_errors %}
+						<div class="form-errors">
+							<p>{{ error|escape }}</p>
+						</div>
+					{% endfor %}
+				{% endif %}
+
         {% for field in log_in_form %}
           {{ field }}
         {% endfor %}
@@ -34,6 +50,22 @@ body { background-image: url("{% static 'bitter_app/images/pexels-photo-249203.j
 
 			<form class="home-forms" id="signup" action="{% url 'bitter:signup' %}" method="post">
         {% csrf_token %}
+
+				{% if user_create_form.errors %}
+					{% for field in user_create_form %}
+						{% for error in field.errors %}
+							<div class="form-erros">
+								<p>{{ error|escape }}</p>
+							</div>
+						{% endfor %}
+					{% endfor %}
+					{% for error in user_create_form.non_field_errors %}
+						<div class="form-errors">
+							<p>{{ error|escape }}</p>
+						</div>
+					{% endfor %}
+				{% endif %}
+
 				<h3>Please join us &lt;3</h3>
         {% for field in user_create_form %}
           {{ field }}

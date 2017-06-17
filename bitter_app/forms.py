@@ -76,4 +76,3 @@ class BittForm(forms.ModelForm):
     class Meta:
         model = Bitts
         fields = ['bitt_text']
-        exclude = ('user',)
