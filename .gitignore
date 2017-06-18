@@ -2,4 +2,4 @@
 *.pyc
 herokulogs.txt
 media/avatars/2017/
-sensitive/
+#sensitive/

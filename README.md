@@ -1,6 +1,6 @@
 # What is Bitter?
 
-Bitter is a very simple Twitter clone app, that I have made as a small exercise to get familiar with Django platform. The app is uploaded on heroku, you can interact with it using [this](https://boiling-harbor-86978.herokuapp.com/) link.
+Bitter is a very simple Twitter clone app, that I have made as an exercise to get familiar with Django platform. The app is deployed on heroku, you can interact with it using [this](https://boiling-harbor-86978.herokuapp.com/) link.
 
 ## What does it do?
 
